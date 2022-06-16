@@ -1,0 +1,12 @@
+{
+  "id": "builtin.language-basics-dart",
+  "name": "Language Basics Dart",
+  "description": "Provides syntax highlighting and bracket matching in Dart files.",
+  "languages": [
+    {
+      "id": "dart",
+      "extensions": [".dart"],
+      "tokenize": "src/tokenizeDart.js"
+    }
+  ]
+}
