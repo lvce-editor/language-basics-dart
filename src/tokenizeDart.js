@@ -39,6 +39,8 @@ export const initialLineState = {
   state: State.TopLevelContent,
 }
 
+export const hasArrayReturn = true
+
 const RE_KEYWORD =
   /^(?:abstract|as|assert|async|await|break|case|catch|class|const|continue|covariant|default|deferred|do|dynamic|else|enum|export|extends|extension|external|factory|false|final|finally|for|Function|get|hide|if|implements|import|in|interface|is|late|library|mixin|new|null|on|operator|part|required|rethrow|return|set|show|static|super|switch|sync|this|throw|true|try|typedef|var|void|while|with|yield)\b/
 const RE_WHITESPACE = /^\s+/
@@ -119,11 +121,9 @@ export const tokenizeLine = (line, lineState) => {
         state
         throw new Error('no')
     }
-    index += next[0].length
-    tokens.push({
-      type: token,
-      length: next[0].length,
-    })
+    const tokenLength = next[0].length
+    index += tokenLength
+    tokens.push(token, tokenLength)
   }
   return {
     state,
