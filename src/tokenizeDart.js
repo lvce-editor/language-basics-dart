@@ -43,9 +43,10 @@ export const hasArrayReturn = true
 
 const RE_KEYWORD =
   /^(?:abstract|as|assert|async|await|break|case|catch|class|const|continue|covariant|default|deferred|do|dynamic|else|enum|export|extends|extension|external|factory|false|final|finally|for|Function|get|hide|if|implements|import|in|interface|is|late|library|mixin|new|null|on|operator|part|required|rethrow|return|set|show|static|super|switch|sync|this|throw|true|try|typedef|var|void|while|with|yield)\b/
+
 const RE_WHITESPACE = /^\s+/
 const RE_VARIABLE_NAME = /^[a-zA-Z]+/
-const RE_PUNCTUATION = /^[:,;\{\}\[\]\.=\(\)>]/
+const RE_PUNCTUATION = /^[:,;\{\}\[\]\.=\(\)>+<]/
 const RE_QUOTE_SINGLE = /^'/
 const RE_QUOTE_DOUBLE = /^"/
 const RE_STRING_SINGLE_QUOTE_CONTENT = /^[^']+/
