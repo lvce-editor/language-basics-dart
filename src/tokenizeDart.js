@@ -21,6 +21,7 @@ export const TokenType = {
   String: 4,
   Numeric: 5,
   Attribute: 6,
+  FunctionName: 885,
 }
 
 export const TokenMap = {
@@ -33,6 +34,7 @@ export const TokenMap = {
   [TokenType.String]: 'String',
   [TokenType.Numeric]: 'Numeric',
   [TokenType.Attribute]: 'Attribute',
+  [TokenType.FunctionName]: 'Function',
 }
 
 export const initialLineState = {
@@ -55,6 +57,7 @@ const RE_NUMERIC = /^\d+/
 const RE_TRIPLE_DOUBLE_QUOTE = /^"""/
 const RE_STRING_TRIPLE_CONTENT = /^.+?(?="""|$)/s
 const RE_ATTRIBUTE = /^@\w+/
+const RE_FUNCTION_CALL_NAME = /^[\w\$]+(?=\s*(\())/
 
 /**
  * @param {string} line
@@ -72,6 +75,9 @@ export const tokenizeLine = (line, lineState) => {
       case State.TopLevelContent:
         if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
+          state = State.TopLevelContent
+        } else if ((next = part.match(RE_FUNCTION_CALL_NAME))) {
+          token = TokenType.FunctionName
           state = State.TopLevelContent
         } else if ((next = part.match(RE_KEYWORD))) {
           token = TokenType.Keyword
