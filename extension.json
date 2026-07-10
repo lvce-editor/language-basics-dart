@@ -8,5 +8,6 @@
       "extensions": [".dart"],
       "tokenize": "src/tokenizeDart.js"
     }
-  ]
+  ],
+  "repository": "https://github.com/lvce-editor/language-basics-dart"
 }
