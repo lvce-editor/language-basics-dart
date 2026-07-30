@@ -5,18 +5,21 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "test-syntax-highlighting",
-    "dev": "node ./node_modules/@lvce-editor/server/bin/server.js ./test/cases --only-extension=."
+    "dev": "node ./node_modules/@lvce-editor/server/bin/server.js ./test/cases --only-extension=.",
+    "lint": "prettier --check . && knip --no-config-hints",
+    "test": "test-syntax-highlighting"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^3.0.3",
-    "typescript": "^6.0.0",
     "@lvce-editor/package-extension": "^0.1.0",
     "@lvce-editor/server": "^0.18.16",
-    "@lvce-editor/test-syntax-highlighting": "^0.2.1"
+    "@lvce-editor/shared-process": "^0.18.16",
+    "@lvce-editor/test-syntax-highlighting": "^0.2.1",
+    "knip": "^6.29.0",
+    "prettier": "^3.0.3",
+    "typescript": "^6.0.0"
   },
   "prettier": {
     "semi": false,
